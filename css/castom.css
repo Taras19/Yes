@@ -11,6 +11,9 @@
 .about-classes--title{
 		margin:0 0 calc(30px + 2.3148vmin) 7%;/*5.0925vmin*/
 }
+.about-classes--content{
+	padding:0 0 calc(50px + 4.44vmin) 0;
+}
 .free-lesson__title{
 	margin:37.03vmin 0 calc(30px + 2.3148vmin) 7%;
 }

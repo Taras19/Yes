@@ -135,7 +135,7 @@ body{
 .about-classes--content{
 	font-size:18px;
 	margin: 0 0 0 @marginRight;
-    padding: 0 0 17.8% 0;
+    //padding: 0 0 17.8% 0;
     background:url("../img/wave.png") no-repeat 100% 75%;
 }
 .recording-classes{
@@ -155,7 +155,7 @@ body{
 	}
 }
 .about-classes-bg{
-	background:url("../img/red-bus.jpg") no-repeat center;
+	background:url("../img/red-bus.png") no-repeat center;
 	background-size:contain;
 }
 /**/
@@ -808,7 +808,7 @@ input[disabled] + .controls{
 	.about-classes-bg{
 		background: 
 			url("../img/bagel-about-class.png"),
-			url("../img/red-bus.jpg");
+			url("../img/red-bus.png");
 		background-repeat:no-repeat,no-repeat;
 		background-position:10px 90%, center;
     background-size:auto, contain;
@@ -1100,6 +1100,21 @@ input[disabled] + .controls{
 		li:not(:last-child){
 			margin:0 0 20px 0;
 		}
+	}
+	.about-classes--title,
+	.about-classes--content,
+	.list-foreseen-situations::after,
+	.main-container-list-teachers,
+	.container-cost .cost__title,
+	.simple-memorization-img span::after,
+	.iteration-img span::after{
+		background:none;
+	}
+	.description-training__title {
+		background: url("../img/red-arrow.png");
+		background-repeat: no-repeat, no-repeat;
+	    background-position: left center;
+	    background-size: auto;
 	}
 
 }
