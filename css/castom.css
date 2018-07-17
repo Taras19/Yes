@@ -32,7 +32,7 @@
 }
 
 .main-container-cost {
-	background:url("../img/bigben.jpg");
+	//background-image:url("../img/bigben.jpg");
 	background-repeat:no-repeat;
 	background-size:contain;
   background-position:calc(-745px + 38.80vw) top;
@@ -75,7 +75,7 @@
 		width:calc(100vmin - 30px);
 	}
 	.main-container-cost{
-		background:none;
+		//background:none;
 	}
 	.free-lesson__title {
     margin:calc(30px + 2.3148vmin) 0;

@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	const listImg = document.querySelectorAll("img");
 	let percentageDownload = document.querySelector(".percentage-download");
 	let step =Math.floor( 100 / listImg.length);
+	let listDownloadElement = document.getElementsByClassName("download-js");/* список елементів які вантажаться */
 	trialLessonIconClose.addEventListener("click",ChangingStatusWindowFreeLesson);
 
 	for(let i = 0; i < listImg.length; i++){
@@ -190,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	window.addEventListener("scroll",function(){
 		requestAnimationFrame(showHideTitle);
-
+		requestAnimationFrame(loadSomethink);
 	});
 
 	function showHideTitle(){
@@ -203,6 +204,28 @@ document.addEventListener("DOMContentLoaded", function(){
 				listHideTitle[i].classList.remove("hide-title");
 			}
 
+		}
+	}
+
+	/* завантаження чого небудь поки при скролі */
+	function loadSomethink(){
+		for( let i = 0; i < listDownloadElement.length; i++){
+			let coor = listDownloadElement[i].getBoundingClientRect();
+			let heightWindow = document.documentElement.clientHeight;
+			if(coor.top > 0 && coor.top < heightWindow * 1.5){
+				//listDownloadElement[i].classList.remove("download-js");
+				if( listDownloadElement[i].tagName == "IMG"){
+					listDownloadElement[i].src = listDownloadElement[i].getAttribute('data-src');
+					listDownloadElement[i].classList.remove("download-js");
+					console.log("download naw!  img");
+				} else{
+					console.log(listDownloadElement[i].tagName );	
+					listDownloadElement[i].style.backgroundImage = listDownloadElement[i].getAttribute('data-src');
+					listDownloadElement[i].classList.remove("download-js");
+					console.log("download naw!");
+				}
+				
+			}
 		}
 	}
 
