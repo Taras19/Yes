@@ -185,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	/* event for window */
 	window.addEventListener("load",function(){
 		requestAnimationFrame(showHideTitle);
+		requestAnimationFrame(loadSomethink);
 		preloader.classList.add("main-container-preloader--hide");
 
 	});
@@ -212,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		for( let i = 0; i < listDownloadElement.length; i++){
 			let coor = listDownloadElement[i].getBoundingClientRect();
 			let heightWindow = document.documentElement.clientHeight;
-			if(coor.top > 0 && coor.top < heightWindow * 1.5){
+			if((coor.top > 0 && coor.top < heightWindow * 1.5) || (coor.bottom > 0 && coor.bottom < heightWindow )){
 				//listDownloadElement[i].classList.remove("download-js");
 				if( listDownloadElement[i].tagName == "IMG"){
 					listDownloadElement[i].src = listDownloadElement[i].getAttribute('data-src');
