@@ -653,6 +653,9 @@ input[disabled] + .controls{
 }
 .container-free-lesson-sm{
 	display:none;
+	img{
+		display:none;
+	}
 }
 .container-free-lesson{
 	margin-left:auto;
@@ -804,6 +807,14 @@ input[disabled] + .controls{
 .hide-title{
 	left:-100vw;
 } 
+.image-situations .download-js,
+.item-list-teachers .download-js,
+.description-training__col .download-js,
+.list-reviews__img .download-js{
+	display:block;
+	margin:auto;
+	width:100px;
+}
 
 /* media start */
 @media all and (max-width:1600px){
@@ -1075,6 +1086,7 @@ input[disabled] + .controls{
 		display:block;
 		img{
 			margin-top:30px;
+			display:inline-block;
 		}
 	}
 	.free-lesson__content{
@@ -1134,6 +1146,15 @@ input[disabled] + .controls{
 		background-repeat: no-repeat, no-repeat;
 	    background-position: left center;
 	    background-size: auto;
+	}
+	.container .image-situations .download-js,
+	.container .item-list-teachers .download-js,
+	.description-training__col .download-js,
+	.container .list-reviews__img .download-js,
+	.container-free-lesson-sm .download-js{
+		display:block;
+		margin:auto;
+		width:100px;
 	}
 
 }

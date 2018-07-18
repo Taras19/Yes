@@ -45,21 +45,23 @@ document.addEventListener("DOMContentLoaded", function(){
 	const preloader = document.querySelector(".main-container-preloader");
 	const listImg = document.querySelectorAll("img");
 	let percentageDownload = document.querySelector(".percentage-download");
-	let step =Math.floor( 100 / listImg.length);
+	let step =Math.floor( 100 / (listImg.length - 1));
 	let listDownloadElement = document.getElementsByClassName("download-js");/* список елементів які вантажаться */
+	
 	trialLessonIconClose.addEventListener("click",ChangingStatusWindowFreeLesson);
-
-	for(let i = 0; i < listImg.length; i++){
-		listImg[i].addEventListener("load", function(){
-			//console.log(step);
-			//console.log(parseInt(percentageDownload.innerHTML));
-			percentageDownload.innerHTML = (  parseInt(percentageDownload.innerHTML) + step ) + " %";
+		for(let index = 0; index < listImg.length; index ++){
+			listImg[index].addEventListener("load", function(){
+			
+			if( this.classList.contains("download-js") || this.classList.contains("logo-js")){
+				percentageDownload.innerHTML = (  parseInt(percentageDownload.innerHTML) + step ) + " %";
+			}
 		});
 	}
 
 	for(let i = 0; i < linkMapAll.length; i++){
 		linkMapAll[i].addEventListener("click",showMap);
 	}
+	
 	containerMapIconClose.addEventListener("click",showMap);
 
 	for(let i = 0; i < recordingClasses.length ; i++){
@@ -156,8 +158,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 
 	function changeWidthScrollBar (){
-		//const countReviews =  document.querySelectorAll(".list-reviews__item").length;
-		//console.log(listReviewsLength + " довжина");
 		scrollBar.style.width =((( count + 1 ) / ( listReviewsDescriptionLength + 1 ) ) * 100) + "%";
 	}
 
@@ -197,8 +197,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	function showHideTitle(){
 		for(let i = 0; i < listHideTitle.length; i++){
-			//console.log(listHideTitle.length);
-			//console.log(" work title ");
 			let coorTitle = listHideTitle[i].getBoundingClientRect();
 			let heightWindow = document.documentElement.clientHeight;
 			if(coorTitle.top > 0 && coorTitle.top < heightWindow){
@@ -207,27 +205,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		}
 	}
-
-	/* завантаження чого небудь поки при скролі */
+	/* load img or background */
 	function loadSomethink(){
 		for( let i = 0; i < listDownloadElement.length; i++){
 			let coor = listDownloadElement[i].getBoundingClientRect();
 			let heightWindow = document.documentElement.clientHeight;
-			if((coor.top > 0 && coor.top < heightWindow * 1.5) || (coor.bottom > 0 && coor.bottom < heightWindow )){
-				//listDownloadElement[i].classList.remove("download-js");
+			/* element with displa:none.getBoundingClientRect() == 0  */
+			if((coor.top > 1 && coor.top < heightWindow * 1.25 ) || (coor.bottom > -20 && coor.bottom < heightWindow && coor.bottom != 0)){
 				if( listDownloadElement[i].tagName == "IMG"){
 					listDownloadElement[i].src = listDownloadElement[i].getAttribute('data-src');
 					listDownloadElement[i].classList.remove("download-js");
-					console.log("download naw!  img");
 				} else{
-					console.log(listDownloadElement[i].tagName );	
 					listDownloadElement[i].style.backgroundImage = listDownloadElement[i].getAttribute('data-src');
 					listDownloadElement[i].classList.remove("download-js");
-					console.log("download naw!");
 				}
 				
 			}
 		}
 	}
-
+	
 });
