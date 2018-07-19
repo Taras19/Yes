@@ -366,7 +366,9 @@ body{
 		font-size:inherit;
 		margin:0 0 20px 0;
 		padding: 15px 0 15px 25px;
-		background:url("../img/item-foreseen-situations__title-bg.jpg") no-repeat left center;
+		//background-image:url("../img/item-foreseen-situations__title-bg.jpg");
+		background-repeat:no-repeat;
+		background-position:left center;
 	}
 	& .item-foreseen-situations__content{
 		margin:0;
@@ -376,9 +378,11 @@ body{
 /* new block */
 .main-container-list-teachers{
 	position:relative;
-	background:
+	/*
+	background-image:
 		url("../img/three-waves.png"),
 		url("../img/bagel-gray-list-teacher.png");
+		*/
 	background-repeat:no-repeat;
 	background-position: 90%,88% top;
   background-size:3.4375%,22.55%;
@@ -438,7 +442,10 @@ body{
 		text-transform:uppercase;
 		position:relative;
 		padding:6.9444vmin 0 0 0;
-		background:url("../img/list-situations-title-bg.png") no-repeat right top/contain;
+		//background:url("../img/list-situations-title-bg.png");
+		background-repeat:no-repeat;
+		background-position: right top;
+		background-size:contain;
 		&::after{
 			.beforeForTitle(@bottom:-20px;);
 		}
@@ -1158,6 +1165,10 @@ input[disabled] + .controls{
 		display:block;
 		margin:auto;
 		width:100px;
+	}
+	.main-container-list-teachers,
+	.container-cost .cost__title{
+		background-image:none !Important;
 	}
 
 }
