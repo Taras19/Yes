@@ -214,10 +214,14 @@ document.addEventListener("DOMContentLoaded", function(){
 			if((coor.top > 1 && coor.top < heightWindow * 1.25 ) || (coor.bottom > -20 && coor.bottom < heightWindow && coor.bottom != 0)){
 				if( listDownloadElement[i].tagName == "IMG"){
 					listDownloadElement[i].src = listDownloadElement[i].getAttribute('data-src');
-					listDownloadElement[i].classList.remove("download-js");
+					//listDownloadElement[i].classList.remove("download-js");
+					listDownloadElement[i].addEventListener("load",function(){
+						this.classList.remove("download-js");
+					})
 				} else{
 					listDownloadElement[i].style.backgroundImage = listDownloadElement[i].getAttribute('data-src');
 					listDownloadElement[i].classList.remove("download-js");
+
 				}
 				
 			}
