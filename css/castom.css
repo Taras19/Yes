@@ -80,4 +80,13 @@
 	.free-lesson__title {
     margin:calc(30px + 2.3148vmin) 0;
 	}
+	.simple-memorization__title,
+	.dialogues__title,
+	.talk-listen__title,
+	.iteration__title {
+		background-image: url('../img/red-arrow.png') !Important;
+		background-repeat: no-repeat ;
+    background-position: left center;
+    background-size: auto;
+	}
 }
